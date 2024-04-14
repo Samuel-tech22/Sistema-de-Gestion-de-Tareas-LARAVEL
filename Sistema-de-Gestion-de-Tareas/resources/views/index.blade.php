@@ -35,12 +35,14 @@
                     {{$tasks->due_date}}
                 </td>
                 <td>
-                    <span class="badge bg-warning fs-6">{{$tasks    ->status}}</span>
+                    <span class="badge bg-warning fs-6">{{$tasks -> status}}</span>
                 </td>
                 <td>
-                    <a href="" class="btn btn-warning">Editar</a>
+                    <a href="{{route('tasks.edit', $tasks)}}" class="btn btn-warning">Editar</a>
 
-                    <form action="" method="post" class="d-inline">
+                    <form action="{{route('tasks.destroy', $tasks)}}" method="POST" class="d-inline">
+                        @csrf
+                        @method('DELETE')
                         <button type="submit" class="btn btn-danger">Eliminar</button>
                     </form>
                 </td>
